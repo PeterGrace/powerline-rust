@@ -10,6 +10,7 @@ libc = "0.2"
 hostname = "0.1.5"
 git2 = { version = "0.10", optional = true, default-features = false}
 dirs = ">0"
+subprocess = "0.2.4"
 
 [features]
 default = ["bash-shell", "libgit"]

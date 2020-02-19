@@ -30,6 +30,10 @@ impl UserScheme for SimpleTheme {
 	const USERNAME_FG: Color = Color(250);
 	const USERNAME_ROOT_BG: Color = Color(124);
 }
+impl K8sContextScheme for SimpleTheme {
+	const K8S_BG: Color = Color(238);
+	const K8S_FG: Color = Color(250);
+}
 
 impl HostScheme for SimpleTheme {
 	const HOSTNAME_BG: Color = Color(238);

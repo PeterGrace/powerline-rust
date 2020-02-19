@@ -7,6 +7,7 @@ mod host;
 mod readonly;
 mod user;
 mod newline;
+mod k8scontext;
 
 pub use cmd::{Cmd, CmdScheme};
 pub use cwd::{Cwd, CwdScheme};
@@ -15,6 +16,7 @@ pub use host::{Host, HostScheme};
 pub use readonly::{ReadOnly, ReadOnlyScheme};
 pub use user::{User, UserScheme};
 pub use newline::{NewLine, NewLineScheme};
+pub use k8scontext::{K8sContext, K8sContextScheme};
 
 pub trait Module: Sized {
 	fn append_segments(&mut self, segments: &mut Vec<Segment>) -> Result<(), Error>;
