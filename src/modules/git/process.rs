@@ -1,4 +1,5 @@
 use std::{path::Path, process::Command};
+use subprocess::{Exec};
 
 use crate::{Error, R};
 
@@ -40,11 +41,10 @@ pub fn get_branch_name(s: &str) -> Option<&str> {
 }
 
 pub fn get_detached_branch_name() -> R<String> {
-	let child = Command::new("git")
-		.args(&["describe", "--tags", "--always"])
-		.output()
-		.map_err(|e| Error::wrap(e, "Failed to run git"))?;
-	Ok(if child.status.success() {
+    let branch = Exec::shell("git branch 2>/dev/null | grep -e '\\* ' | awk '{print $2}'")
+        .stdout(Redirection::Pipe)
+        .capture()?.stdout_str();
+	Ok(if branch.status.success() {
 		let branch = std::str::from_utf8(&child.stdout)?.split('\n').next().ok_or_else(|| Error::from_str("Empty git output"))?;
 		format!("\u{2693}{}", branch)
 	} else {
