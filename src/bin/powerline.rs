@@ -5,6 +5,7 @@ use powerline::{modules::*, theme::SimpleTheme};
 fn main() -> powerline::R<()> {
 	let mut prompt = powerline::Powerline::new();
 
+	prompt.add_module(AWSVault::<SimpleTheme>::new())?;
 	prompt.add_module(K8sContext::<SimpleTheme>::new())?;
 //	prompt.add_module(User::<SimpleTheme>::new())?;
 //	prompt.add_module(Host::<SimpleTheme>::new())?;
