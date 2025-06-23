@@ -15,7 +15,7 @@ pub trait DistroBoxScheme {
 impl<S: DistroBoxScheme> DistroBox<S> {
     pub fn new() -> DistroBox<S> {
         if std::env::var("INSIDE_DISTROBOX").is_err() {
-            let proc = Exec::shell("distrobox-host-exec true").capture();
+            let proc = Exec::shell("distrobox-host-exec true >>/dev/null 2>&1").capture();
             let context = match proc {
                 Ok(c) => c,
                 Err(_) => return DistroBox(PhantomData)
