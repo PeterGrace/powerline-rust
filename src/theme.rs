@@ -49,6 +49,10 @@ impl ReadOnlyScheme for SimpleTheme {
 	const READONLY_BG: Color = Color(124);
 	const READONLY_FG: Color = Color(254);
 }
+impl DistroBoxScheme for SimpleTheme {
+	const DISTROBOX_BG: Color = Color(124);
+	const DISTROBOX_FG: Color = Color(254);
+}
 
 impl GitScheme for SimpleTheme {
 	const GIT_AHEAD_BG: Color = Color(240);
