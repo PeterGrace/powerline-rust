@@ -36,8 +36,8 @@ impl K8sContextScheme for SimpleTheme {
 }
 
 impl AWSVaultScheme for SimpleTheme {
-	const AWS_BG: Color = Color(238);
-	const AWS_FG: Color = Color(250);
+	const AWS_BG: Color = Color(161);
+	const AWS_FG: Color = Color(15);
 }
 
 impl HostScheme for SimpleTheme {
